@@ -13,8 +13,8 @@ const SubscriptionCard = ({ name, price, currency, icon, billing, color, categor
                         <Text numberOfLines={1} className="sub-title">
                             {name}
                         </Text>
-                        <Text numberOfLines={1} ellipsisMode="tail" className="sub-meta">
-                            {category?.trim() || plan?.trim() || (renewalDate ? formatSubscriptionDateTime(renewalDate) :)}
+                        <Text numberOfLines={1} ellipsizeMode="tail" className="sub-meta">
+                            {category?.trim() || plan?.trim() || (renewalDate ? formatSubscriptionDateTime(renewalDate) :'')}
                         </Text>
                     </View>
                 </View>
@@ -24,7 +24,7 @@ const SubscriptionCard = ({ name, price, currency, icon, billing, color, categor
                     <Text className="sub-billing">{billing}</Text>
                 </View>
             </View>
-        </View>
+
             {expanded && (
                 <View className="sub-body">
                     <View className="sub-details">
@@ -37,7 +37,7 @@ const SubscriptionCard = ({ name, price, currency, icon, billing, color, categor
                         <View className="sub-row">
                             <View className="sub-row-copy">
                                 <Text className="sub-label">Category:</Text>
-                                <Text className="sub-value" numberOfLines={1} ellipsizeMode="tail">{category?.trim() || plan?.trim() || 'Not Provided'}</Text>
+                                <Text className="sub-value" numberOfLines={1} ellipsizeMode="tail">{(category?.trim() || plan?.trim()) || 'Not Provided'}</Text>
                             </View>
                         </View>
                         <View className="sub-row">
@@ -64,4 +64,4 @@ const SubscriptionCard = ({ name, price, currency, icon, billing, color, categor
         </Pressable>
     )
 }
-export default SubscriptionCard;
+export default SubscriptionCard

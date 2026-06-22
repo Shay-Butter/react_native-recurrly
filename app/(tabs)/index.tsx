@@ -61,13 +61,13 @@ export default function App(){
                     )}
                     data={HOME_SUBSCRIPTIONS}
                     keyExtractor={(item) => item.id}
-                    renderItem{({ item }) => (
+                    renderItem={({ item }) => (
                         <SubscriptionCard
                             { ...item}
                             expanded={ expandedSubscriptionId === item.id}
                             onPress={() => setExpandedSubscriptionId((currentId) => (currentId === item.id ? null : item.id))}
-                        >/
-                    )
+                        />
+                    )}
                     extraData={expandedSubscriptionId}
                     ItemSeparatorComponent={() => <View className="h-4" />}
                     showsVerticalScrollIndicator={false}
